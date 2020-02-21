@@ -127,10 +127,6 @@ def read_packet(sock) -> Tuple[int, bytes]:
 
 
 class MinecraftPing:
-	host: str = None
-	port: int = None
-	latency: float = None
-	
 	def __init__(self, host: str, port: int):
 		"""
 		Create a new MinecraftPing representing a minecraft server to ping.
@@ -140,6 +136,7 @@ class MinecraftPing:
 		"""
 		self.host = host
 		self.port = port
+		self.latency = None
 	
 	def ping(self) -> Tuple[bool, Optional[str]]:
 		"""
@@ -255,7 +252,7 @@ if __name__ == "__main__":
 		sys.stdout.write("  -h, --help        Show this help\n")
 		sys.stdout.write("  -s, --save-image  Save server thumbnail image to file\n")
 		sys.stdout.write("\n")
-		sys.stdout.write("Author: ntoskrnl4 <gogadgetmatthew@gmail.com>\n")
+		sys.stdout.write("Author: @ntoskrnl4\n")
 		exit()
 	
 	if len(sys.argv) == 2:
