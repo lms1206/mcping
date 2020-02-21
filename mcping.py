@@ -266,8 +266,11 @@ if __name__ == "__main__":
 				exit()
 		else:
 			port = 25565
-		server = MinecraftPing(host, port)
-		success, error = server.ping()
+		try:
+			server = MinecraftPing(host, port)
+			success, error = server.ping()
+		except KeyboardInterrupt:
+			exit()
 	
 	if len(sys.argv) == 3:
 		host = sys.argv[1]
@@ -276,8 +279,11 @@ if __name__ == "__main__":
 		except ValueError:
 			sys.stdout.write("Argument error: Non-numeric port provided\n")
 			exit()
-		server = MinecraftPing(host, port)
-		success, error = server.ping()
+		try:
+			server = MinecraftPing(host, port)
+			success, error = server.ping()
+		except KeyboardInterrupt:
+			exit()
 	
 	if not success:
 		sys.stdout.write("Could not connect to server: "+error+"\n")
